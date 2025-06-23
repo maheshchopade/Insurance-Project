@@ -4,32 +4,26 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
-import jakarta.persistence.OneToOne;
 
 @Entity
 public class User {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Integer uId;
+	private Integer Id;
 
 	private String Firstname;
 
 	private String Lastname;
 
-	private String Email_Id;
-
-	private Long Mobile_Number;
-
-	@OneToOne
-	private Address address;
+	private String password;
 
 	public Integer getuId() {
-		return uId;
+		return Id;
 	}
 
-	public void setuId(Integer uId) {
-		this.uId = uId;
+	public void setuId(Integer Id) {
+		this.Id = Id;
 	}
 
 	public String getFirstname() {
@@ -48,34 +42,18 @@ public class User {
 		Lastname = lastname;
 	}
 
-	public String getEmail_Id() {
-		return Email_Id;
+	public String getPassword() {
+		return password;
 	}
 
-	public void setEmail_Id(String email_Id) {
-		Email_Id = email_Id;
-	}
-
-	public Long getMobile_Number() {
-		return Mobile_Number;
-	}
-
-	public void setMobile_Number(Long mobile_Number) {
-		Mobile_Number = mobile_Number;
-	}
-
-	public Address getAddress() {
-		return address;
-	}
-
-	public void setAddress(Address address) {
-		this.address = address;
+	public void setPassword(String password) {
+		this.password = password;
 	}
 
 	@Override
 	public String toString() {
-		return "User [uId=" + uId + ", Firstname=" + Firstname + ", Lastname=" + Lastname + ", Email_Id=" + Email_Id
-				+ ", Mobile_Number=" + Mobile_Number + ", address=" + address + "]";
+		return "User [Id=" + Id + ", Firstname=" + Firstname + ", Lastname=" + Lastname + ", password=" + password
+				+ "]";
 	}
 
 }

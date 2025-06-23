@@ -12,9 +12,12 @@ public class UserServiceImpl implements UserService {
 	private UserRepository userRepository;
 
 	@Override
-	public User createUser(User user) {
-		User createUser = userRepository.save(user);
-		return createUser;
+	public User updatePassword(int id, User user) {
+		User updateUser = userRepository.findById(id);
+		if (updateUser != null) {
+			updateUser.setPassword(user.getPassword());
+		}
+		return userRepository.save(updateUser);
 	}
 
 }
